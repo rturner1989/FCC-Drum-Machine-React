@@ -1,10 +1,8 @@
 import React from "react";
 
-const Display = () => {
+const Display = ({ display }) => {
     return (
-        <div id="display">
-            <h1>Hello World</h1>
-        </div>
+        <div id="display">{display === "" ? "Hello World" : `${display}`}</div>
     );
 };
 

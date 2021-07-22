@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-const Button = ({ link }) => {
+const Button = ({ link, handleClick }) => {
     const audioRef = useRef(null);
 
     const { keyCode, keyTrigger, id, url } = link;
@@ -12,6 +12,7 @@ const Button = ({ link }) => {
     const handleKeyPress = (e) => {
         if (e.keyCode === keyCode) {
             playAudio();
+            handleClick(id);
         }
     };
 
@@ -26,7 +27,10 @@ const Button = ({ link }) => {
         <button
             id={id}
             keytrigger={keyTrigger}
-            onClick={playAudio}
+            onClick={() => {
+                playAudio();
+                handleClick(id);
+            }}
             className="drum-pad"
         >
             <audio src={url} className="clip" id={keyTrigger} ref={audioRef} />
