@@ -3,18 +3,28 @@ import { data } from "../Data";
 import Button from "./Button";
 import "../index.css";
 
-const Drumpad = ({ handleClick }) => {
+const Drumpad = ({ handleClick, bank }) => {
     return (
         <div id="btn-container">
-            {data.map((link) => {
-                return (
-                    <Button
-                        key={link.id}
-                        link={link}
-                        handleClick={handleClick}
-                    />
-                );
-            })}
+            {bank
+                ? data.bank1.map((link) => {
+                      return (
+                          <Button
+                              key={link.id}
+                              link={link}
+                              handleClick={handleClick}
+                          />
+                      );
+                  })
+                : data.bank2.map((link) => {
+                      return (
+                          <Button
+                              key={link.id}
+                              link={link}
+                              handleClick={handleClick}
+                          />
+                      );
+                  })}
         </div>
     );
 };
