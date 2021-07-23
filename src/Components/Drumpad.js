@@ -6,25 +6,16 @@ import "../index.css";
 const Drumpad = ({ handleClick, toggle }) => {
     return (
         <div id="btn-container">
-            {!toggle
-                ? data.bank1.map((link) => {
-                      return (
-                          <Button
-                              key={link.id}
-                              link={link}
-                              handleClick={handleClick}
-                          />
-                      );
-                  })
-                : data.bank2.map((link) => {
-                      return (
-                          <Button
-                              key={link.id}
-                              link={link}
-                              handleClick={handleClick}
-                          />
-                      );
-                  })}
+            {data.map((link) => {
+                return (
+                    <Button
+                        key={link.keyTrigger}
+                        link={link}
+                        handleClick={handleClick}
+                        toggle={toggle}
+                    />
+                );
+            })}
         </div>
     );
 };
