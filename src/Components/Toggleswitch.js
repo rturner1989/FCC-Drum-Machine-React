@@ -3,10 +3,10 @@ import Switch from "@material-ui/core/Switch";
 
 const Toggleswitch = ({ toggle, handleToggle }) => {
     return (
-        <div class="toggle">
+        <div className="toggle">
             <Switch
-                checked={toggle.checkedA}
-                onChange={(e) => handleToggle(e)}
+                checked={toggle}
+                onChange={handleToggle}
                 color="primary"
                 name="checkedA"
                 inputProps={{ "aria-label": "secondary checkbox" }}

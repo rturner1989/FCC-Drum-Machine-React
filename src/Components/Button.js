@@ -27,7 +27,6 @@ const Button = ({ link, handleClick }) => {
         <button
             id={id}
             keytrigger={keyTrigger}
-            keyCode={keyCode}
             onClick={() => {
                 playAudio();
                 handleClick(id);

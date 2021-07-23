@@ -5,29 +5,20 @@ import Toggleswitch from "./Components/Toggleswitch";
 
 const Container = () => {
     const [display, setDisplay] = useState("");
-    const [bank, setBank] = useState(true);
-    // const [toggle, setToggle] = useState(true);
-    const [toggle, setToggle] = useState({ checkedA: false });
+    const [toggle, setToggle] = useState(false);
 
     const handleClick = (e) => {
         setDisplay(e);
     };
 
-    const handleToggle = (event) => {
-        // setToggle(false);
-        if (toggle.checkedA === false) {
-            setToggle({ ...toggle, [event.target.name]: event.target.checked });
-            setBank(false);
-        } else if (toggle.checkedA === true) {
-            setToggle({ ...toggle, [event.target.name]: event.target.checked });
-            setBank(true);
-        }
+    const handleToggle = () => {
+        setToggle(!toggle);
     };
 
     return (
         <div id="drum-machine">
             <Display display={display} />
-            <Drumpad handleClick={handleClick} bank={bank} />
+            <Drumpad handleClick={handleClick} toggle={toggle} />
             <Toggleswitch toggle={toggle} handleToggle={handleToggle} />
         </div>
     );

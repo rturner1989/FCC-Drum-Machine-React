@@ -3,10 +3,10 @@ import { data } from "../Data";
 import Button from "./Button";
 import "../index.css";
 
-const Drumpad = ({ handleClick, bank }) => {
+const Drumpad = ({ handleClick, toggle }) => {
     return (
         <div id="btn-container">
-            {bank
+            {!toggle
                 ? data.bank1.map((link) => {
                       return (
                           <Button
