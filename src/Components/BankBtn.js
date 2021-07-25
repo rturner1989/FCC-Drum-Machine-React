@@ -1,7 +1,9 @@
 import React from "react";
 import Switch from "@material-ui/core/Switch";
+import { useGlobalContext } from "../Context";
 
-const BankBtn = ({ bankToggle, handleToggle }) => {
+const BankBtn = () => {
+    const { bankToggle, handleToggle } = useGlobalContext();
     return (
         <div className="toggle">
             <span>Bank</span>

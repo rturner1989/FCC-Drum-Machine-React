@@ -3,19 +3,11 @@ import { data } from "../Data";
 import Button from "./Button";
 import "../index.css";
 
-const Drumpad = ({ handleClick, bankToggle, powerToggle }) => {
+const Drumpad = () => {
     return (
         <div id="btn-container">
             {data.map((link) => {
-                return (
-                    <Button
-                        key={link.keyTrigger}
-                        link={link}
-                        handleClick={handleClick}
-                        powerToggle={powerToggle}
-                        bankToggle={bankToggle}
-                    />
-                );
+                return <Button key={link.keyTrigger} link={link} />;
             })}
         </div>
     );

@@ -3,17 +3,12 @@ import BankBtn from "./BankBtn";
 import PowerBtn from "./PowerBtn";
 import VolumeSlider from "./VolumeSlider";
 
-const BtnContainer = ({
-    bankToggle,
-    powerToggle,
-    handleToggle,
-    handlePower,
-}) => {
+const BtnContainer = () => {
     return (
         <div>
-            <PowerBtn powerToggle={powerToggle} handlePower={handlePower} />
-            <BankBtn bankToggle={bankToggle} handleToggle={handleToggle} />
-            <VolumeSlider powerToggle={powerToggle} />
+            <PowerBtn />
+            <BankBtn />
+            <VolumeSlider />
         </div>
     );
 };

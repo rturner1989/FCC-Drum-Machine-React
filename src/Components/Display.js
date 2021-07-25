@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useGlobalContext } from "../Context";
 
-const Display = ({ display }) => {
+const Display = () => {
+    const { display } = useGlobalContext();
     const refDisplay = useRef(null);
 
     return (

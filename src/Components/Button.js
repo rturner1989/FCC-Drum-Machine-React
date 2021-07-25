@@ -1,11 +1,13 @@
 import React, { useRef, useEffect } from "react";
+import { useGlobalContext } from "../Context";
 
-const Button = ({ link, handleClick, powerToggle, bankToggle }) => {
+const Button = ({ link }) => {
+    const { handleClick, bankToggle, powerToggle, volume } = useGlobalContext();
+    const { keyCode, keyTrigger, bank1, bank2 } = link;
     const audioRef = useRef(null);
 
-    const { keyCode, keyTrigger, bank1, bank2 } = link;
-
     const playAudio = () => {
+        audioRef.current.volume = volume / 100;
         audioRef.current.play();
     };
 
@@ -24,7 +26,7 @@ const Button = ({ link, handleClick, powerToggle, bankToggle }) => {
         return () => {
             document.removeEventListener("keydown", handleKeyPress);
         };
-    }, [powerToggle, bankToggle]);
+    }, [volume, powerToggle, bankToggle]);
 
     return (
         <button

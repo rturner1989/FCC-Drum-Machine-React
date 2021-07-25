@@ -1,71 +1,21 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Slider from "@material-ui/core/Slider";
-import VolumeDown from "@material-ui/icons/VolumeDown";
-import VolumeUp from "@material-ui/icons/VolumeUp";
+import React from "react";
+import { useGlobalContext } from "../Context";
 
-const useStyles = makeStyles({
-    root: {
-        width: 200,
-    },
-});
-
-export default function VolumeSlider({ powerToggle }) {
-    const classes = useStyles();
-    const [value, setValue] = useState(30);
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
-
+const VolumeSlider = () => {
+    const { powerToggle, volume, volumeControl } = useGlobalContext();
     return (
-        <div className={classes.root}>
-            {powerToggle ? (
-                <div>
-                    <Typography id="continuous-slider" gutterBottom>
-                        Volume
-                    </Typography>
-                    <Grid container spacing={2}>
-                        <Grid item>
-                            <VolumeDown />
-                        </Grid>
-                        <Grid item xs>
-                            <Slider
-                                value={value}
-                                onChange={handleChange}
-                                aria-labelledby="continuous-slider"
-                            />
-                        </Grid>
-                        <Grid item>
-                            <VolumeUp />
-                        </Grid>
-                    </Grid>{" "}
-                </div>
-            ) : (
-                <div>
-                    {" "}
-                    <Typography id="disabled-slider" gutterBottom>
-                        Volume
-                    </Typography>
-                    <Grid container spacing={2}>
-                        <Grid item>
-                            <VolumeDown />
-                        </Grid>
-                        <Grid item xs>
-                            <Slider
-                                disabled
-                                defaultValue={30}
-                                aria-labelledby="disabled-slider"
-                            />
-                        </Grid>
-                        <Grid item>
-                            <VolumeUp />
-                        </Grid>
-                    </Grid>
-                </div>
-            )}
+        <div className="slidecontainer">
+            <p>Volume:</p>
+            <input
+                type="range"
+                min="1"
+                max="100"
+                value={volume}
+                onChange={(e) => volumeControl(e.target.value)}
+                className="slider"
+            />
         </div>
     );
-}
+};
+
+export default VolumeSlider;
