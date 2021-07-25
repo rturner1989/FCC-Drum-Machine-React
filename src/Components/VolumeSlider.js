@@ -1,19 +1,26 @@
 import React from "react";
 import { useGlobalContext } from "../Context";
+import { BsVolumeDown, BsVolumeUp } from "react-icons/bs";
 
 const VolumeSlider = () => {
-    const { powerToggle, volume, volumeControl } = useGlobalContext();
+    const { volume, volumeControl } = useGlobalContext();
     return (
-        <div className="slidecontainer">
-            <p>Volume:</p>
+        <div className="volume-container">
+            <p>Volume</p>
+            <span>
+                <BsVolumeDown />
+            </span>
             <input
                 type="range"
                 min="1"
                 max="100"
                 value={volume}
                 onChange={(e) => volumeControl(e.target.value)}
-                className="slider"
+                className="volume-slider"
             />
+            <span>
+                <BsVolumeUp />
+            </span>
         </div>
     );
 };

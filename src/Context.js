@@ -20,6 +20,10 @@ const AppProvider = ({ children }) => {
         setPowertoggle(!powerToggle);
     };
 
+    const volumeControl = (volume) => {
+        setVolume(volume);
+    };
+
     useEffect(() => {
         let timer;
         if (!powerToggle && display === "") {
@@ -42,12 +46,17 @@ const AppProvider = ({ children }) => {
     }, [powerToggle]);
 
     useEffect(() => {
+        if (!powerToggle) {
+            return;
+        }
         setDisplay(volume);
+        let timer = setTimeout(() => {
+            setDisplay(" ");
+        }, 2000);
+        return () => {
+            clearTimeout(timer);
+        };
     }, [volume]);
-
-    const volumeControl = (volume) => {
-        setVolume(volume);
-    };
 
     return (
         <AppContext.Provider
