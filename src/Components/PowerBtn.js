@@ -1,12 +1,13 @@
 import React from "react";
 import Switch from "@material-ui/core/Switch";
 
-const Toggleswitch = ({ toggle, handleToggle }) => {
+const PowerBtn = ({ powerToggle, handlePower }) => {
     return (
         <div className="toggle">
+            <span>Power</span>
             <Switch
-                checked={toggle}
-                onChange={handleToggle}
+                checked={powerToggle}
+                onChange={handlePower}
                 color="primary"
                 name="checkedA"
                 inputProps={{ "aria-label": "secondary checkbox" }}
@@ -15,4 +16,4 @@ const Toggleswitch = ({ toggle, handleToggle }) => {
     );
 };
 
-export default Toggleswitch;
+export default PowerBtn;

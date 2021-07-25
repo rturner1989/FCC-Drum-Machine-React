@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-const Button = ({ link, handleClick, toggle }) => {
+const Button = ({ link, handleClick, powerToggle, bankToggle }) => {
     const audioRef = useRef(null);
 
     const { keyCode, keyTrigger, bank1, bank2 } = link;
@@ -10,9 +10,12 @@ const Button = ({ link, handleClick, toggle }) => {
     };
 
     const handleKeyPress = (e) => {
+        if (!powerToggle) {
+            return;
+        }
         if (e.keyCode === keyCode) {
             playAudio();
-            handleClick(!toggle ? bank1.id : bank2.id);
+            handleClick(!bankToggle ? bank1.id : bank2.id);
         }
     };
 
@@ -21,20 +24,21 @@ const Button = ({ link, handleClick, toggle }) => {
         return () => {
             document.removeEventListener("keydown", handleKeyPress);
         };
-    }, [toggle]);
+    }, [powerToggle, bankToggle]);
 
     return (
         <button
-            id={!toggle ? bank1.id : bank2.id}
+            id={!bankToggle ? bank1.id : bank2.id}
+            disabled={!powerToggle}
             keytrigger={keyTrigger}
             onClick={() => {
                 playAudio();
-                handleClick(!toggle ? bank1.id : bank2.id);
+                handleClick(!bankToggle ? bank1.id : bank2.id);
             }}
             className="drum-pad"
         >
             <audio
-                src={!toggle ? bank1.url : bank2.url}
+                src={!bankToggle ? bank1.url : bank2.url}
                 className="clip"
                 id={keyTrigger}
                 ref={audioRef}

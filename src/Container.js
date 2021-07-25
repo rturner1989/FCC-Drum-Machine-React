@@ -1,25 +1,58 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Display from "./Components/Display";
 import Drumpad from "./Components/Drumpad";
-import Toggleswitch from "./Components/Toggleswitch";
+import BtnContainer from "./Components/BtnContainer";
 
 const Container = () => {
     const [display, setDisplay] = useState("");
-    const [toggle, setToggle] = useState(false);
+    const [bankToggle, setBanktoggle] = useState(false);
+    const [powerToggle, setPowertoggle] = useState(false);
 
     const handleClick = (e) => {
         setDisplay(e);
     };
 
     const handleToggle = () => {
-        setToggle(!toggle);
+        setBanktoggle(!bankToggle);
     };
+
+    const handlePower = () => {
+        setPowertoggle(!powerToggle);
+        updateDisplay();
+    };
+
+    const updateDisplay = () => {
+        if (!powerToggle) {
+            setDisplay("Hello");
+            setTimeout(() => {
+                setDisplay(" ");
+            }, 2000);
+        } else {
+            setDisplay("Goodbye");
+            setTimeout(() => {
+                setDisplay("");
+            }, 2000);
+        }
+    };
+
+    // useEffect(() => {
+    //     clearTimeout();
+    // }, [updateDisplay]);
 
     return (
         <div id="drum-machine">
             <Display display={display} />
-            <Drumpad handleClick={handleClick} toggle={toggle} />
-            <Toggleswitch toggle={toggle} handleToggle={handleToggle} />
+            <Drumpad
+                handleClick={handleClick}
+                powerToggle={powerToggle}
+                bankToggle={bankToggle}
+            />
+            <BtnContainer
+                bankToggle={bankToggle}
+                powerToggle={powerToggle}
+                handleToggle={handleToggle}
+                handlePower={handlePower}
+            />
         </div>
     );
 };
