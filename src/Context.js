@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 const AppContext = React.createContext();
 
@@ -18,22 +18,32 @@ const AppProvider = ({ children }) => {
 
     const handlePower = () => {
         setPowertoggle(!powerToggle);
-        updateDisplay();
     };
 
-    const updateDisplay = () => {
-        if (!powerToggle) {
+    useEffect(() => {
+        let timer;
+        if (!powerToggle && display === "") {
+            setDisplay("FCC Drum Machine");
+        } else if (powerToggle) {
             setDisplay("Hello");
-            setTimeout(() => {
+            timer = setTimeout(() => {
                 setDisplay(" ");
             }, 2000);
         } else {
             setDisplay("Goodbye");
-            setTimeout(() => {
-                setDisplay("");
+            timer = setTimeout(() => {
+                setDisplay("FCC Drum Pad");
             }, 2000);
         }
-    };
+
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [powerToggle]);
+
+    useEffect(() => {
+        setDisplay(volume);
+    }, [volume]);
 
     const volumeControl = (volume) => {
         setVolume(volume);

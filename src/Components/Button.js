@@ -8,6 +8,7 @@ const Button = ({ link }) => {
 
     const playAudio = () => {
         audioRef.current.volume = volume / 100;
+        audioRef.current.currentTime = 0;
         audioRef.current.play();
     };
 
