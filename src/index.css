@@ -1,6 +1,8 @@
 /* Variables */
 :root {
     --initial-color: #ccc;
+    --drum-font: "Graduate", cursive;
+    --background-color: rgb(18, 18, 71);
     --disabled-color: #d0d0d7;
     --enabled-color: #e9e9ed;
     --enabled-outline-color: #8f8f9d;
@@ -8,7 +10,11 @@
     --qaz-button-disabled-color: #d16f8b;
     --qaz-button-hover-color: #e01650;
     --wsx-button-color: #feb95f;
-    --edc-button-color: #05f140;
+    --wsx-button-disabled-color: #f3d2a7;
+    --wsx-button-hover-color: #e48e1f;
+    --edc-button-color: #40d347;
+    --edc-button-disabled-color: #80d385;
+    --edc-button-hover-color: #0eb117;
     --control-font-size: 1.5rem;
 }
 /* Root */
@@ -18,7 +24,9 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: #aaa;
+    color: white;
+    background: chocolate;
+    font-family: var(--drum-font);
 }
 .break {
     margin: 0px;
@@ -28,24 +36,33 @@
 /* Root Container */
 #drum-machine {
     width: 50vw;
+    max-width: 750px;
     height: 60vh;
     padding-bottom: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
-    border-radius: 7px;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+        330deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(18, 18, 71, 1) 50%,
+        rgba(65, 65, 96, 1) 100%
+    );
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    box-shadow: white 2px 2px 5px;
 }
 /* Display */
 #display {
-    font-family: "Graduate", cursive;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 30%;
-    font-size: 2rem;
+    font-size: 3rem;
+    text-align: center;
 }
 /* Toggle Switch + Volume Control Container */
 .control-container {
@@ -132,41 +149,6 @@
     -webkit-transition: 0.2s;
     transition: 0.2s;
 }
-
-/* Inner Circle for toggle switches */
-
-/* .slider1 {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--enabled-color);
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-}
-.slider1:hover {
-    background-color: #d0d0d7;
-}
-.slider1.round1 {
-    border-radius: 34px;
-}
-.slider1.round1:before {
-    border-radius: 50%;
-}
-.slider1:before {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    left: 2px;
-    bottom: -4px;
-    background-color: blue;
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
-} */
-
 input:checked + .slider {
     background-color: #0060df;
 }
@@ -180,7 +162,7 @@ input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-    box-shadow: 0 4px 2px -1px gray;
+    box-shadow: 0 4px 2px -2px gray;
 }
 
 /* Drum Button Container */
@@ -196,9 +178,12 @@ input:checked + .slider:before {
     height: 80%;
     align-self: center;
     justify-self: center;
-    color: white;
+    color: black;
     font-size: var(--control-font-size);
     border-radius: 7px;
+    -moz-box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000;
 }
 .qaz-button {
     background-color: var(--qaz-button-color);
@@ -206,12 +191,33 @@ input:checked + .slider:before {
 .qaz-button:disabled {
     background-color: var(--qaz-button-disabled-color);
 }
-.qaz-button:hover {
+.qaz-button:hover:enabled {
     background-color: var(--qaz-button-hover-color);
+    -moz-box-shadow: inset 0 0 10px #ffffff;
+    -webkit-box-shadow: inset 0 0 10px #ffffff;
+    box-shadow: inset 0 0 10px #ffffff;
 }
 .wsx-button {
     background-color: var(--wsx-button-color);
 }
+.wsx-button:disabled {
+    background-color: var(--wsx-button-disabled-color);
+}
+.wsx-button:hover:enabled {
+    background-color: var(--wsx-button-hover-color);
+    -moz-box-shadow: inset 0 0 10px #ffffff;
+    -webkit-box-shadow: inset 0 0 10px #ffffff;
+    box-shadow: inset 0 0 10px #ffffff;
+}
 .edc-button {
     background-color: var(--edc-button-color);
+}
+.edc-button:disabled {
+    background-color: var(--edc-button-disabled-color);
+}
+.edc-button:hover:enabled {
+    background-color: var(--edc-button-hover-color);
+    -moz-box-shadow: inset 0 0 10px #ffffff;
+    -webkit-box-shadow: inset 0 0 10px #ffffff;
+    box-shadow: inset 0 0 10px #ffffff;
 }
