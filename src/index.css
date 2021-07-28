@@ -17,7 +17,14 @@
     --edc-button-hover-color: #0eb117;
     --control-font-size: 1.5rem;
 }
+
 /* Root */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 #root {
     display: flex;
     justify-content: center;
@@ -71,6 +78,7 @@
     align-items: center;
     justify-content: center;
     width: 80%;
+    padding-top: 4%;
 }
 .btn-container {
     display: flex;
@@ -99,10 +107,13 @@
     font-size: var(--control-font-size);
 }
 .volume-icon {
-    font-size: var(--control-font-size);
+    font-size: 3rem;
 }
 .volume-slider {
     width: 50%;
+}
+.volume-span {
+    display: none;
 }
 
 /* Toggle Switches */

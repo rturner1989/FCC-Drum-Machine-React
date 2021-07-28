@@ -57,6 +57,26 @@ const AppProvider = ({ children }) => {
         };
     }, [volume]);
 
+    useEffect(() => {
+        let timer;
+        if (powerToggle) {
+            if (!bankToggle) {
+                setDisplay("Bank 1");
+                timer = setTimeout(() => {
+                    setDisplay(" ");
+                }, 2000);
+            } else {
+                setDisplay("Bank 2");
+                timer = setTimeout(() => {
+                    setDisplay(" ");
+                }, 2000);
+            }
+        }
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [bankToggle]);
+
     return (
         <AppContext.Provider
             value={{

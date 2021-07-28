@@ -15,7 +15,6 @@ const ToggleBtn = () => {
                         onChange={handlePower}
                     />
                     <span className="slider round"></span>
-                    <span className="slider1 round1"></span>
                 </label>
             </div>
             <div className="toggle" id="bank-toggle">
@@ -28,7 +27,6 @@ const ToggleBtn = () => {
                         disabled={!powerToggle}
                     />
                     <span className="slider round"></span>
-                    <span className="slider1 round1"></span>
                 </label>
             </div>
         </div>
