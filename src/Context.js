@@ -36,10 +36,9 @@ const AppProvider = ({ children }) => {
         } else {
             setDisplay("Goodbye");
             timer = setTimeout(() => {
-                setDisplay("FCC Drum Pad");
+                setDisplay("FCC Drum Machine");
             }, 2000);
         }
-
         return () => {
             clearTimeout(timer);
         };

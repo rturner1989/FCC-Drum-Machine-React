@@ -3,7 +3,7 @@ import { useGlobalContext } from "../Context";
 import { BsVolumeDown, BsVolumeUp } from "react-icons/bs";
 
 const VolumeSlider = () => {
-    const { volume, volumeControl } = useGlobalContext();
+    const { volume, volumeControl, powerToggle } = useGlobalContext();
     return (
         <div className="volume-container">
             <p>Volume</p>
@@ -17,6 +17,7 @@ const VolumeSlider = () => {
                 value={volume}
                 onChange={(e) => volumeControl(e.target.value)}
                 className="volume-slider"
+                disabled={!powerToggle}
             />
             <span>
                 <BsVolumeUp />
