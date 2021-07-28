@@ -3,6 +3,12 @@
     --initial-color: #ccc;
     --disabled-color: #d0d0d7;
     --enabled-color: #e9e9ed;
+    --enabled-outline-color: #8f8f9d;
+    --qaz-button-color: #e43f6f;
+    --qaz-button-disabled-color: #d16f8b;
+    --qaz-button-hover-color: #e01650;
+    --wsx-button-color: #feb95f;
+    --edc-button-color: #05f140;
     --control-font-size: 1.5rem;
 }
 /* Root */
@@ -47,16 +53,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 80%;
 }
 .btn-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 80%;
 }
 .toggle {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-grow: 1;
     padding: 2px 2px;
@@ -65,17 +72,17 @@
 .toggle div {
     padding: 5px 5px;
 }
-
 .volume-container {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    width: 100%;
     flex-grow: 1;
     padding: 2px 2px;
     font-size: var(--control-font-size);
 }
 .volume-icon {
-    font-size: 1.5rem;
+    font-size: var(--control-font-size);
 }
 .volume-slider {
     width: 50%;
@@ -93,7 +100,6 @@
     width: 0;
     height: 0;
 }
-
 .slider {
     position: absolute;
     cursor: pointer;
@@ -104,6 +110,7 @@
     background-color: var(--enabled-color);
     -webkit-transition: 0.4s;
     transition: 0.4s;
+    outline: var(--enabled-outline-color) 1px solid;
 }
 .slider:hover {
     background-color: #d0d0d7;
@@ -173,6 +180,7 @@ input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
+    box-shadow: 0 4px 2px -1px gray;
 }
 
 /* Drum Button Container */
@@ -188,4 +196,22 @@ input:checked + .slider:before {
     height: 80%;
     align-self: center;
     justify-self: center;
+    color: white;
+    font-size: var(--control-font-size);
+    border-radius: 7px;
+}
+.qaz-button {
+    background-color: var(--qaz-button-color);
+}
+.qaz-button:disabled {
+    background-color: var(--qaz-button-disabled-color);
+}
+.qaz-button:hover {
+    background-color: var(--qaz-button-hover-color);
+}
+.wsx-button {
+    background-color: var(--wsx-button-color);
+}
+.edc-button {
+    background-color: var(--edc-button-color);
 }

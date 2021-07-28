@@ -2,6 +2,7 @@ export const data = [
     {
         keyCode: 81,
         keyTrigger: "Q",
+        className: "qaz-button",
         bank1: {
             id: "Heater-1",
             url: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3",
@@ -14,6 +15,7 @@ export const data = [
     {
         keyCode: 87,
         keyTrigger: "W",
+        className: "wsx-button",
         bank1: {
             id: "Heater-2",
             url: "https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3",
@@ -26,6 +28,7 @@ export const data = [
     {
         keyCode: 69,
         keyTrigger: "E",
+        className: "edc-button",
         bank1: {
             id: "Heater-3",
             url: "https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3",
@@ -38,6 +41,7 @@ export const data = [
     {
         keyCode: 65,
         keyTrigger: "A",
+        className: "qaz-button",
         bank1: {
             id: "Heater-4",
             url: "https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3",
@@ -50,6 +54,7 @@ export const data = [
     {
         keyCode: 83,
         keyTrigger: "S",
+        className: "wsx-button",
         bank1: {
             id: "Clap",
             url: "https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3",
@@ -62,6 +67,7 @@ export const data = [
     {
         keyCode: 68,
         keyTrigger: "D",
+        className: "edc-button",
         bank1: {
             id: "Open-HH",
             url: "https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3",
@@ -74,6 +80,7 @@ export const data = [
     {
         keyCode: 90,
         keyTrigger: "Z",
+        className: "qaz-button",
         bank1: {
             id: "Kick-n'-Hat",
             url: "https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3",
@@ -86,6 +93,7 @@ export const data = [
     {
         keyCode: 88,
         keyTrigger: "X",
+        className: "wsx-button",
         bank1: {
             id: "Kick",
             url: "https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3",
@@ -98,6 +106,7 @@ export const data = [
     {
         keyCode: 67,
         keyTrigger: "C",
+        className: "edc-button",
         bank1: {
             id: "Closed-HH",
             url: "https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3",

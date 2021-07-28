@@ -3,7 +3,7 @@ import { useGlobalContext } from "../Context";
 
 const Button = ({ link }) => {
     const { handleClick, bankToggle, powerToggle, volume } = useGlobalContext();
-    const { keyCode, keyTrigger, bank1, bank2 } = link;
+    const { keyCode, keyTrigger, bank1, bank2, className } = link;
     const audioRef = useRef(null);
 
     const playAudio = () => {
@@ -38,7 +38,8 @@ const Button = ({ link }) => {
                 playAudio();
                 handleClick(!bankToggle ? bank1.id : bank2.id);
             }}
-            className="drum-pad"
+            className={`drum-pad ${className}`}
+            // className={className}
         >
             <audio
                 src={!bankToggle ? bank1.url : bank2.url}
