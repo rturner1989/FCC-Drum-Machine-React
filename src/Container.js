@@ -7,8 +7,9 @@ const Container = () => {
     return (
         <div id="drum-machine">
             <Display />
-            <Drumpad />
+            <hr className="break"></hr>
             <BtnContainer />
+            <Drumpad />
         </div>
     );
 };

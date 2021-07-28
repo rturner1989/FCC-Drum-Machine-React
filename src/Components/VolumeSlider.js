@@ -6,10 +6,8 @@ const VolumeSlider = () => {
     const { volume, volumeControl, powerToggle } = useGlobalContext();
     return (
         <div className="volume-container">
-            <p>Volume</p>
-            <span>
-                <BsVolumeDown />
-            </span>
+            <p>Volume:</p>
+            <BsVolumeDown className="volume-icon" />
             <input
                 type="range"
                 min="1"
@@ -19,9 +17,7 @@ const VolumeSlider = () => {
                 className="volume-slider"
                 disabled={!powerToggle}
             />
-            <span>
-                <BsVolumeUp />
-            </span>
+            <BsVolumeUp className="volume-icon" />
         </div>
     );
 };

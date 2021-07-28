@@ -2,9 +2,9 @@ import Container from "./Container";
 
 function App() {
     return (
-        <div className="App">
+        <main className="App">
             <Container />
-        </div>
+        </main>
     );
 }
 
