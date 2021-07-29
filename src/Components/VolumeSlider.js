@@ -7,7 +7,14 @@ const VolumeSlider = () => {
     return (
         <div className="volume-container">
             <p>Volume:</p>
-            <BsVolumeDown className="volume-icon" />
+            <BsVolumeDown
+                className="volume-icon"
+                aria-hidden={true}
+                focusable={false}
+            />
+            {/* <label id="volume-label" htmlFor="volume-slider">
+                Volume Slider
+            </label> */}
             <input
                 type="range"
                 min="1"
@@ -15,9 +22,14 @@ const VolumeSlider = () => {
                 value={volume}
                 onChange={(e) => volumeControl(e.target.value)}
                 className="volume-slider"
+                id="volume-slider"
                 disabled={!powerToggle}
             />
-            <BsVolumeUp className="volume-icon" />
+            <BsVolumeUp
+                className="volume-icon"
+                aria-hidden={true}
+                focusable={false}
+            />
         </div>
     );
 };

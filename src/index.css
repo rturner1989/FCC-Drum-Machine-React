@@ -42,7 +42,7 @@ body {
 }
 /* Root Container */
 #drum-machine {
-    /* width: 50vw; */
+    width: 50vw;
     max-width: 750px;
     height: 60vh;
     padding-bottom: 10%;
@@ -61,6 +61,11 @@ body {
     border-radius: 10px;
     box-shadow: white 2px 2px 5px;
 }
+@media (max-width: 768px) {
+    #drum-machine {
+        width: 80vw;
+    }
+}
 /* Display */
 #display {
     display: flex;
@@ -68,7 +73,7 @@ body {
     align-items: center;
     width: 100%;
     height: 30%;
-    font-size: 4.5vh;
+    font-size: 4vh;
     text-align: center;
 }
 /* Toggle Switch + Volume Control Container */
