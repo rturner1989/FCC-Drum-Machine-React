@@ -12,9 +12,9 @@ const VolumeSlider = () => {
                 aria-hidden={true}
                 focusable={false}
             />
-            {/* <label id="volume-label" htmlFor="volume-slider">
+            <label className="label-hidden" htmlFor="volume-slider">
                 Volume Slider
-            </label> */}
+            </label>
             <input
                 type="range"
                 min="1"

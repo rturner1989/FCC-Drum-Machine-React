@@ -6,9 +6,9 @@ const Display = () => {
     const refDisplay = useRef(null);
 
     return (
-        <div id="display" ref={refDisplay}>
+        <section id="display" ref={refDisplay}>
             {display}
-        </div>
+        </section>
     );
 };
 

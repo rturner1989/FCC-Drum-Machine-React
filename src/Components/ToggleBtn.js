@@ -1,34 +1,20 @@
 import React from "react";
-import { useGlobalContext } from "../Context";
 
-const ToggleBtn = () => {
-    const { bankToggle, powerToggle, handlePower, handleToggle } =
-        useGlobalContext();
+const ToggleBtn = ({ title, id, checked, onChange, htmlFor, disabled }) => {
     return (
-        <div className="btn-container">
-            <div className="toggle" id="power-toggle">
-                <div>Power:</div>
-                <label className="switch">
-                    <input
-                        type="checkbox"
-                        checked={powerToggle}
-                        onChange={handlePower}
-                    />
-                    <span className="slider round"></span>
-                </label>
-            </div>
-            <div className="toggle" id="bank-toggle">
-                <div>Bank:</div>
-                <label className="switch">
-                    <input
-                        type="checkbox"
-                        checked={bankToggle}
-                        onChange={handleToggle}
-                        disabled={!powerToggle}
-                    />
-                    <span className="slider round"></span>
-                </label>
-            </div>
+        <div className="toggle" id="power-toggle">
+            <div>{title}</div>
+            <label className="switch" htmlFor={htmlFor}>
+                <input
+                    id={id}
+                    type="checkbox"
+                    checked={checked}
+                    onChange={onChange}
+                    disabled={disabled}
+                />
+                <span className="slider round"></span>
+                <span className="label-hidden">Toggle Button</span>
+            </label>
         </div>
     );
 };

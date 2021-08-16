@@ -5,11 +5,11 @@ import "../index.css";
 
 const Drumpad = () => {
     return (
-        <div id="btn-container">
+        <section id="btn-container">
             {data.map((link) => {
                 return <Button key={link.keyTrigger} link={link} />;
             })}
-        </div>
+        </section>
     );
 };
 
