@@ -1,15 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { useGlobalContext } from "../Context";
 
 const Display = () => {
-    const { display, powerToggle } = useGlobalContext();
-    const refDisplay = useRef(null);
+    const { display } = useGlobalContext();
 
-    return (
-        <section id="display" ref={refDisplay}>
-            {display}
-        </section>
-    );
+    return <section id="display">{display}</section>;
 };
 
 export default Display;

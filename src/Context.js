@@ -88,6 +88,7 @@ const AppProvider = ({ children }) => {
                 handlePower,
                 handleToggle,
                 volumeControl,
+                setVolume,
             }}
         >
             {children}
